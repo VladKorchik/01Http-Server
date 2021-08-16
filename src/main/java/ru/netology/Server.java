@@ -53,16 +53,10 @@ public class Server {
                     socket.close();
                 }
 
-                // todo При необходимости, доработайте функциональность поиска handler'а так, чтобы учитывался
-                //  только путь без Query: т.е. handler, зарегистрированный на "/messages",
-                //  обрабатывал и запросы "/messages?last=10"
-
-                //todo подумать, где это должно быть с точки зрения логики
                 Map<String, String> queryParams = getQueryParams(parts[1]);
                 // instead of "getQueryParam(String name)" just use queryParams.get()
                 // p.s.  i could realize method which returns List<NameValuePair>, but it'l be
                 //  parse every time with a new request, it is not efficient in terms of saving resources
-
 
                 String path;
                 if (parts[1].contains("?")) {
